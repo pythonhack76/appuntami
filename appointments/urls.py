@@ -7,4 +7,6 @@ urlpatterns = [
     path('list/', views.list_appointments, name='list_appointments'),
     path('<int:id>/', views.appointment_detail, name='appointment_detail'),  # Aggiungi questa riga
     path('<int:id>/update/', views.update_appointment, name='update_appointment'),  # Aggiungi questa riga
+     path('<int:id>/delete/', views.delete_appointment, name='delete_appointment'),  # Aggiungi questa riga per l'eliminazione
 ]
+

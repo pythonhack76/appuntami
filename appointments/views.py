@@ -48,4 +48,12 @@ def update_appointment(request, id):
         return redirect('appointment_detail', id=id)
 
     return render(request, 'appointments/update.html', {'appointment': appointment})
+def delete_appointment(request, id):
+    appointment = get_object_or_404(Appointment, id=id)
+    
+    if request.method == 'POST':
+        appointment.delete()  # Elimina l'appuntamento
+        return redirect('list_appointments')  # Reindirizza alla lista degli appuntamenti
+
+    return render(request, 'appointments/confirm_delete.html', {'appointment': appointment})
 

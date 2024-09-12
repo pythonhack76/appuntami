@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Update Appointment</title>
-</head>
-<body>
-    <h2>Update Appointment</h2>
-    <form method="post">
-        {% csrf_token %}
-        <label for="customer_name">Customer Name:</label>
-        <input type="text" id="customer_name" name="customer_name" value="{{ appointment.customer_name }}"><br>
+<h1>Modifica Appuntamento</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="customer_name">Nome cliente:</label>
+    <input type="text" id="customer_name" name="customer_name" value="{{ appointment.customer_name }}"><br>
 
-        <label for="service">Service:</label>
-        <input type="text" id="service" name="service" value="{{ appointment.service }}"><br>
+    <label for="service">Servizio:</label>
+    <input type="text" id="service" name="service" value="{{ appointment.service }}"><br>
 
-        <label for="appointment_date">Appointment Date:</label>
-        <input type="datetime-local" id="appointment_date" name="appointment_date" value="{{ appointment.appointment_date }}"><br>
+    <label for="appointment_date">Data appuntamento:</label>
+    <input type="datetime-local" id="appointment_date" name="appointment_date" value="{{ appointment.appointment_date|date:'Y-m-d\TH:i' }}"><br>
 
-        <button type="submit">Update Appointment</button>
-    </form>
-</body>
-</html>
+    <input type="submit" value="Salva modifiche">
+</form>
