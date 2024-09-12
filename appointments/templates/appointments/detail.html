@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Details</title>
+</head>
+<body>
+    <h2>Appointment Details</h2>
+    <p>Name: {{ appointment.customer_name }}</p>
+    <p>Service: {{ appointment.service }}</p>
+    <p>Date: {{ appointment.appointment_date }}</p>
+    <a href="{% url 'update_appointment' appointment.id %}">Edit</a>
+    <a href="{% url 'delete_appointment' appointment.id %}">Delete</a>
+</body>
+</html>

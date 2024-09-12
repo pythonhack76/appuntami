@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Appointment</title>
+</head>
+<body>
+    <h2>Create a new Appointment</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name"><br>
+
+        <label for="service">Service:</label>
+        <input type="text" id="service" name="service"><br>
+
+        <label for="appointment_date">Appointment Date:</label>
+        <input type="datetime-local" id="appointment_date" name="appointment_date"><br>
+
+        <button type="submit">Create Appointment</button>
+    </form>
+</body>
+</html>
