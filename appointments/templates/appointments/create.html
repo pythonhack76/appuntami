@@ -1,22 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Crea Appuntamento{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Create Appointment</title>
 </head>
 <body>
-    <h2>Create a new Appointment</h2>
-    <form method="post">
-        {% csrf_token %}
-        <label for="customer_name">Customer Name:</label>
-        <input type="text" id="customer_name" name="customer_name"><br>
+    <h1 class="text-center">Crea/Modifica Appuntamento</h1>
+    <div class="container">
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="customer_name" class="form-label">Nome cliente:</label>
+                <input type="text" id="customer_name" name="customer_name" class="form-control" value="{{ appointment.customer_name }}">
+            </div>
+    
+            <div class="mb-3">
+                <label for="service" class="form-label">Servizio:</label>
+                <input type="text" id="service" name="service" class="form-control" value="{{ appointment.service }}">
+            </div>
+    
+            <div class="mb-3">
+                <label for="appointment_date" class="form-label">Data appuntamento:</label>
+                <input type="datetime-local" id="appointment_date" name="appointment_date" class="form-control" value="{{ appointment.appointment_date|date:'Y-m-d\TH:i' }}">
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Salva</button>
+        </form>
+        {% endblock %}
+    </div>
 
-        <label for="service">Service:</label>
-        <input type="text" id="service" name="service"><br>
+  
+  
+  
+  
 
-        <label for="appointment_date">Appointment Date:</label>
-        <input type="datetime-local" id="appointment_date" name="appointment_date"><br>
+  
+  
 
-        <button type="submit">Create Appointment</button>
-    </form>
+  
+  
+
+  
+  
 </body>
 </html>

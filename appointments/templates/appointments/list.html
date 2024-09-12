@@ -1,10 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
 <h1>Lista Appuntamenti</h1>
-<ul>
+
+<p>Numero di appuntamenti: {{ appointments|length }}</p>
+
+{% if appointments %}
+<ul class="list-group">
     {% for appointment in appointments %}
-        <li>
-            {{ appointment.customer_name }} - {{ appointment.service }} - {{ appointment.appointment_date }}
-            <a href="{% url 'update_appointment' appointment.id %}">Modifica</a> | 
-            <a href="{% url 'delete_appointment' appointment.id %}">Elimina</a>
+        <li class="list-group-item">
+            {{ appointment.customer_name }} - {{ appointment.service }} - {{ appointment.appointment_date|date:"d/m/Y H:i" }}
+            <a href="{% url 'update_appointment' appointment.id %}" class="btn btn-warning btn-sm">
+                <i class="fas fa-edit"></i> Modifica
+            </a>
+            <a href="{% url 'delete_appointment' appointment.id %}" class="btn btn-danger btn-sm" onclick="return confirm('Sei sicuro di voler eliminare questo appuntamento?')">
+                <i class="fas fa-trash-alt"></i> Elimina
+            </a>
         </li>
     {% endfor %}
 </ul>
+{% else %}
+<p class="alert alert-info">Nessun appuntamento disponibile.</p>
+{% endif %}
+
+
+
+
+{% endblock %}
