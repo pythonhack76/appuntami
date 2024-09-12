@@ -1,0 +1,6 @@
+<h1>Home Appuntamenti</h1>
+<ul>
+    {% for appointment in appointments %}
+        <li>{{ appointment.customer_name }} - {{ appointment.service }} - {{ appointment.appointment_date }}</li>
+    {% endfor %}
+</ul>

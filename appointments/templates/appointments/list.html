@@ -12,6 +12,7 @@
                 <a href="{% url 'appointment_detail' appointment.id %}">View</a>
                 <a href="{% url 'update_appointment' appointment.id %}">Edit</a>
                 <a href="{% url 'delete_appointment' appointment.id %}">Delete</a>
+                <a href="{% url 'update_appointment' appointment.id %}">Modifica</a>  <!-- Link di aggiornamento -->
             </li>
         {% endfor %}
     </ul>
